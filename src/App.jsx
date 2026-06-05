@@ -64,7 +64,7 @@ const index = todos.findIndex(t=> t.id===todoId)
       <div className="flex flex-col">
           <h1 className="text-3xl font-bold">Todo List</h1>
           <form className="flex gap-4 flex-row">
-          <input onSubmit={e=>addTodo(e)} onChange={(e)=> setInputAreaValue(e.target.value)} value={inputAreaValue} id="addTodoInputArea" className="outline-2 rounded-full p-2 w-80"></input>
+          <input onSubmit={e=>addTodo(e)} onChange={(e)=> setInputAreaValue(e.target.value)} value={inputAreaValue} id="addTodoInputArea" className="outline-2 rounded-full px-2 w-60"></input>
           <button onClick={e=>addTodo(e)} className="rounded-full bg-green-600 text-white w-20 p-2 hover:bg-green-800">Əlavə et</button>
 
           </form>
