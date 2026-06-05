@@ -77,7 +77,7 @@ const index = todos.findIndex(t=> t.id===todoId)
               <input name="taskcheck" type="checkbox" className="mr-2" ></input>
               
               
-              {!todo.editing ? todo.task : <input onChange={(e)=>editTodo(e,todo.id)} value={todo.task} className="outline-2 rounded-full px-2 w-60"></input>}
+              {!todo.editing ? todo.task : <input onChange={(e)=>editTodo(e,todo.id)} value={todo.task} className="outline-2 rounded-full px-2 w-40"></input>}
             
               </label>
 
