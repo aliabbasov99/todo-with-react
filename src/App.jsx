@@ -65,7 +65,7 @@ const index = todos.findIndex(t=> t.id===todoId)
           <h1 className="text-3xl font-bold">Todo List</h1>
           <form className="flex gap-4 flex-row">
           <input onSubmit={e=>addTodo(e)} onChange={(e)=> setInputAreaValue(e.target.value)} value={inputAreaValue} id="addTodoInputArea" className="outline-2 rounded-full p-2 w-80"></input>
-          <button onClick={e=>addTodo(e)} className="rounded-full bg-green-600 text-white p-2 hover:bg-green-800">Əlavə et</button>
+          <button onClick={e=>addTodo(e)} className="rounded-full bg-green-600 text-white w-20 p-2 hover:bg-green-800">Əlavə et</button>
 
           </form>
           <ul>
@@ -77,7 +77,7 @@ const index = todos.findIndex(t=> t.id===todoId)
               <input name="taskcheck" type="checkbox" className="mr-2" ></input>
               
               
-              {!todo.editing ? todo.task : <input onChange={(e)=>editTodo(e,todo.id)} value={todo.task} className="outline-2 rounded-full px-2 w-80"></input>}
+              {!todo.editing ? todo.task : <input onChange={(e)=>editTodo(e,todo.id)} value={todo.task} className="outline-2 rounded-full px-2 w-60"></input>}
             
               </label>
 
