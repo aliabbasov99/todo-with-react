@@ -14,51 +14,20 @@ function App() {
     setInputAreaValue('')
   }
   function deleteTodo(todoId){
-    const index = todos.findIndex(t=> t.id===todoId)
-    setTodos(
-      [
-        ...todos.slice(0, index),
-        ...todos.slice(index+1)
-      ]
-    )
+    setTodos(todos.filter(t=> t.id !== todoId))
   }
   function switchEditStateTodo(todoId){
-    const index = todos.findIndex(t=> t.id===todoId)
-    let currentTodo = todos.find(t=> t.id===todoId)
-    currentTodo.editing = true
-    setTodos(
-      [
-        ...todos.slice(0, index),
-          currentTodo,
-        ...todos.slice(index+1)
-      ]
-    )
+    setTodos(todos.map(todo=>
+      todo.id===todoId ? {...todo, editing: !todo.editing} : todo
+    ))
     
   }
   function editTodo(e, todoId){
-      const index = todos.findIndex(t=> t.id===todoId)
-    let currentTodo = todos.find(t=> t.id===todoId)
-    currentTodo.task = e.target.value
-    setTodos(
-      [
-        ...todos.slice(0, index),
-          currentTodo,
-        ...todos.slice(index+1)
-      ]
-    )
+    setTodos(todos.map(todo=>
+      todo.id === todoId ? {...todo, task: e.target.value} : todo
+    ))
     }
-    function changeTodoTask(todoId){
-const index = todos.findIndex(t=> t.id===todoId)
-    let currentTodo = todos.find(t=> t.id===todoId)
-    currentTodo.editing = false
-    setTodos(
-      [
-        ...todos.slice(0, index),
-          currentTodo,
-        ...todos.slice(index+1)
-      ]
-    )
-    }
+
   return (
     <div className="container mx-auto px-4 md:px-40">
       <div className="flex flex-col">
@@ -81,7 +50,7 @@ const index = todos.findIndex(t=> t.id===todoId)
             
               </label>
 
-              {!todo.editing ? <button onClick={()=>switchEditStateTodo(todo.id)} className="rounded-full outline-2 bg-yellow-300 text-white p-2 hover:bg-yellow-600">Dəyişdir</button> : <button onClick={()=>changeTodoTask(todo.id)} className="rounded-full outline-2 bg-yellow-300 text-white p-2 hover:bg-yellow-600">Göndər</button> }  
+              {!todo.editing ? <button onClick={()=>switchEditStateTodo(todo.id)} className="rounded-full outline-2 bg-yellow-300 text-white p-2 hover:bg-yellow-600">Dəyişdir</button> : <button onClick={()=>switchEditStateTodo(todo.id)} className="rounded-full outline-2 bg-yellow-300 text-white p-2 hover:bg-yellow-600">Göndər</button> }  
               
               <button onClick={()=>{deleteTodo(todo.id)}} className="rounded-full bg-red-600 text-white p-2 px-5 hover:bg-red-800">Sil</button>
             </li>
